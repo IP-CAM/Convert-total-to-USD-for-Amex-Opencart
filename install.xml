@@ -25,7 +25,6 @@
                             $order_info['currency_value'],
                             false
                         );
-
                         $order_info['total'] = $this->currency->convert($totalFromOrder, $order_info['currency_code'], 'USD');
                         $order_info['currency_code'] = 'USD';
                     }
