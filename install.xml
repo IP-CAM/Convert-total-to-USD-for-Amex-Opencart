@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>convert_total_to_usd_for_amex</name>
+    <code>convert_total_to_usd_for_amex</code>
+    <description>Convert Total To USD for AMEX</description>
+    <version>1.0.0</version>
+    <author>Ivan Stasiuk</author>
+    <link>http://stasi.uk</link>
+
+    <file path="catalog/controller/extension/payment/xppflow.php">
+        <operation error="skip">
+            <search><![CDATA[$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);]]></search>
+            <add position="after"><![CDATA[
+                /* CONVERT_TOTAL_TO_USD_FOR_AMEX START */
+                if (isset($this->request->post['cc_type'])
+                && utf8_strtoupper(trim($this->request->post['cc_type'])) == 'AMEX') {
+                    if (isset($order_info['currency_code'])
+                    && isset($order_info['currency_value'])
+                    && isset($order_info['total'])
+                    && $this->currency->has('USD')
+                    && $order_info['currency_code'] != 'USD') {
+                        $totalFromOrder = $this->currency->format(
+                            $order_info['total'],
+                            $order_info['currency_code'],
+                            $order_info['currency_value'],
+                            false
+                        );
+
+                        $order_info['total'] = $this->currency->convert($totalFromOrder, $order_info['currency_code'], 'USD');
+                        $order_info['currency_code'] = 'USD';
+                    }
+                }
+                /* CONVERT_TOTAL_TO_USD_FOR_AMEX END */
+            ]]></add>
+        </operation>
+    </file>
+
+</modification>
