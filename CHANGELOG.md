@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/brokeyourbike/convert-total-to-usd-for-amex-opencart/compare/v1.0.2...v1.0.3) (2021-07-14)
+
+
+### Bug Fixes
+
+* include Get Help link ([19fba24](https://www.github.com/brokeyourbike/convert-total-to-usd-for-amex-opencart/commit/19fba242a2a2464b053079112af421151caa85be))
+
 ### [1.0.2](https://www.github.com/brokeyourbike/convert-total-to-usd-for-amex-opencart/compare/v1.0.1...v1.0.2) (2021-07-14)
 
 
