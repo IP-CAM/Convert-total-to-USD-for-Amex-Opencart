@@ -4,7 +4,7 @@
     <code>convert_total_to_usd_for_amex</code>
     <description>Convert Total To USD for AMEX</description>
     <version>1.0.0</version>
-    <author>Ivan Stasiuk</author>
+    <author><![CDATA[Ivan Stasiuk<br/><a href="https://stasi.uk">Get Help</a>]]> </author>
     <link>https://stasi.uk</link>
 
     <file path="catalog/controller/extension/payment/xppflow.php">
